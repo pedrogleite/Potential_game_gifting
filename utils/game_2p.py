@@ -65,14 +65,3 @@ def play_game(size, r, gift):
     probability_prosocial = len(datax)/size**2 # writes the percentage of successes over 'size' amount of runs.
     return probability_prosocial, datax, datay
 
-def p1_p2_plot(size, r, gift):
-    _, datax, datay = play_game(size, r, gift)
-
-    plt.scatter(100*np.array(datax)/size, 100*np.array(datay)/size, color='green')
-    plt.xlabel("Player 1's Initial Potential to Hunt [%]")
-    plt.ylabel("Player 2's Initial Potential to Hunt [%]")
-    plt.title(f'Convergence to Prosocial Equilibrium \n as a Function of Initial Potential Towards Hunting \n with r = {r} and $\\gamma$ = {gift}:  {100*len(datax)/size**2:.1f}%')
-    plt.xlim(0,100)
-    plt.ylim(0,100)
-    plt.show()
-p1_p2_plot(100, -6, 10) 
